@@ -1,5 +1,8 @@
 extends Node2D
 
+signal objeto
+signal deteccion
+
 var velocity = 400
 var screen_size
 
@@ -21,4 +24,4 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 func _on_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	pass

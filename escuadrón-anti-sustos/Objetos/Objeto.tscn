@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://t44nx37pmv8m"]
+[gd_scene load_steps=4 format=3 uid="uid://t44nx37pmv8m"]
 
+[ext_resource type="Script" uid="uid://ct6ht0uqk8ht0" path="res://Objetos/objeto.gd" id="1_bhg0h"]
 [ext_resource type="Texture2D" uid="uid://ugxneb6f47ub" path="res://icon.svg" id="1_gwsb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wn4v"]
 size = Vector2(129, 130)
 
 [node name="Objeto" type="Area2D"]
+script = ExtResource("1_bhg0h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
@@ -16,3 +18,5 @@ shape = SubResource("RectangleShape2D_8wn4v")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(96, 97)
 texture = ExtResource("1_gwsb8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
