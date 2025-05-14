@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx0bimtofvkdc"]
+[gd_scene load_steps=3 format=3 uid="uid://cx0bimtofvkdc"]
 
 [ext_resource type="PackedScene" uid="uid://b8t3srcdk0t68" path="res://Escenas/player.tscn" id="1_6lbni"]
+[ext_resource type="PackedScene" uid="uid://behy46tjqv2h4" path="res://fondo.tscn" id="1_vt1rs"]
 
 [node name="Main" type="Node2D"]
 
+[node name="Fondo" parent="." instance=ExtResource("1_vt1rs")]
+
 [node name="Player" parent="." instance=ExtResource("1_6lbni")]
-position = Vector2(512, 299)
+position = Vector2(487, 521)
