@@ -1,4 +1,6 @@
-extends Node2D
+extends Area2D
+
+var radar = preload("res://radar.gd")
 
 signal objeto
 signal deteccion
@@ -31,7 +33,13 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 func detectar():
+	add_child(radar)
 	deteccion.emit()
+	$Timer.start()
+	$Timer.timeout.connect(on_timer_timeout)
+
+func on_timer_timeout():
+	remove_child(radar)
 
 func interactuar():
 	pass

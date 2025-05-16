@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1pu7kjpn78vq"]
 
-[ext_resource type="Script" uid="uid://beh3nc0chpgdo" path="res://Jugador/detector.gd" id="1_16k11"]
+[ext_resource type="Script" uid="uid://beh3nc0chpgdo" path="res://Jugador/Detector/detector.gd" id="1_16k11"]
 [ext_resource type="Texture2D" uid="uid://ugxneb6f47ub" path="res://icon.svg" id="2_omvyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8o684"]
@@ -17,3 +17,7 @@ shape = SubResource("RectangleShape2D_8o684")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(96, 97)
 texture = ExtResource("2_omvyu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
