@@ -16,7 +16,6 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_8wn4v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.254902, 0.658824, 1)
 position = Vector2(96, 97)
 texture = ExtResource("1_gwsb8")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
