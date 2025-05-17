@@ -18,4 +18,4 @@ position = Vector2(461, 480)
 position = Vector2(776, 498)
 
 [node name="Fantasma" parent="." instance=ExtResource("5_kxym5")]
-position = Vector2(0, -2)
+position = Vector2(185, 386)

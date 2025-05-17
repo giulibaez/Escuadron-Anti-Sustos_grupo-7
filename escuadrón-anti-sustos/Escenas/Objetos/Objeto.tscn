@@ -7,11 +7,17 @@
 size = Vector2(128, 127)
 
 [node name="Objeto" type="StaticBody2D"]
+modulate = Color(1, 1, 0, 1)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_1vx4q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fgnto")
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_1vx4q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1vx4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fgnto")

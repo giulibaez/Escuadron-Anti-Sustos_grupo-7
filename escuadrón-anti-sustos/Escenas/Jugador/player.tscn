@@ -1,24 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8t3srcdk0t68"]
+[gd_scene load_steps=6 format=3 uid="uid://b8t3srcdk0t68"]
 
 [ext_resource type="Texture2D" uid="uid://ugxneb6f47ub" path="res://Assets/icon.svg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://rsyjvwbio86i" path="res://Escenas/Jugador/player.gd" id="1_onrkg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(128, 127)
+[ext_resource type="Texture2D" uid="uid://cr060cnc0fgkp" path="res://Assets/radar.webp" id="2_a7dgo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6oo3n"]
-radius = 164.012
+radius = 274.13
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(128, 128)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.6, 0.6)
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_onrkg")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4flbx")
 
 [node name="Radar" type="Area2D" parent="."]
 
@@ -28,7 +23,13 @@ shape = SubResource("CircleShape2D_6oo3n")
 [node name="SpriteRadar" type="Sprite2D" parent="Radar"]
 modulate = Color(0, 1, 1, 0.470588)
 self_modulate = Color(0, 0.956863, 1, 0.462745)
-scale = Vector2(2.60937, 2.60156)
-texture = ExtResource("1_4flbx")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_a7dgo")
 
 [node name="Timer" type="Timer" parent="Radar"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4flbx")
