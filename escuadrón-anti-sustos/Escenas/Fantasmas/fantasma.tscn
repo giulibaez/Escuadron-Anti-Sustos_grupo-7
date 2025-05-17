@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cao8uhst47vib"]
+
+[ext_resource type="Script" uid="uid://ukpgjmqsfw1h" path="res://Escenas/Fantasmas/fantasma.gd" id="1_7cg5d"]
+[ext_resource type="Texture2D" uid="uid://ugxneb6f47ub" path="res://Assets/icon.svg" id="2_lkl3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phspf"]
+size = Vector2(128, 127)
+
+[node name="Fantasma" type="StaticBody2D"]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_7cg5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_phspf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_lkl3k")

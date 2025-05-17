@@ -6,7 +6,6 @@ func _physics_process(delta):
 	movimiento()
 	move_and_slide()
 
-
 func movimiento():
 	var vel_x := 0.0
 	var  vel_y := 0.0
@@ -27,4 +26,3 @@ func movimiento():
 		
 	velocity.x = vel_x * VELOCIDAD
 	velocity.y = vel_y * VELOCIDAD
-	

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx0bimtofvkdc"]
+
+[ext_resource type="PackedScene" uid="uid://b8t3srcdk0t68" path="res://Escenas/Jugador/player.tscn" id="1_6lbni"]
+[ext_resource type="Script" uid="uid://b3ri8id4qve36" path="res://Escenas/Niveles/main.gd" id="1_kxym5"]
+[ext_resource type="PackedScene" uid="uid://behy46tjqv2h4" path="res://Escenas/Niveles/fondo.tscn" id="1_vt1rs"]
+[ext_resource type="PackedScene" uid="uid://5weckjvaad2s" path="res://Escenas/Objetos/Objeto.tscn" id="3_t102f"]
+[ext_resource type="PackedScene" uid="uid://cao8uhst47vib" path="res://Escenas/Fantasmas/fantasma.tscn" id="5_kxym5"]
+
+[node name="Nivel 0" type="Node2D"]
+script = ExtResource("1_kxym5")
+
+[node name="Fondo" parent="." instance=ExtResource("1_vt1rs")]
+
+[node name="Player" parent="." instance=ExtResource("1_6lbni")]
+position = Vector2(461, 480)
+
+[node name="Objeto" parent="." instance=ExtResource("3_t102f")]
+position = Vector2(776, 498)
+
+[node name="Fantasma" parent="." instance=ExtResource("5_kxym5")]
+position = Vector2(0, -2)
