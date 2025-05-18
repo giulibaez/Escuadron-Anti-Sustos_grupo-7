@@ -1,11 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx0bimtofvkdc"]
+[gd_scene load_steps=7 format=3 uid="uid://cx0bimtofvkdc"]
 
 [ext_resource type="PackedScene" uid="uid://b8t3srcdk0t68" path="res://Escenas/player.tscn" id="1_6lbni"]
+[ext_resource type="Script" uid="uid://bwwnd32kludg4" path="res://Escenas/main.gd" id="1_crgrh"]
 [ext_resource type="PackedScene" uid="uid://behy46tjqv2h4" path="res://fondo.tscn" id="1_vt1rs"]
+[ext_resource type="PackedScene" uid="uid://cao8uhst47vib" path="res://Fantasmas/fantasma.tscn" id="3_0kh0y"]
+[ext_resource type="PackedScene" uid="uid://c1pu7kjpn78vq" path="res://Jugador/Detector/detector.tscn" id="4_7xwpo"]
+[ext_resource type="PackedScene" uid="uid://5weckjvaad2s" path="res://Objetos/Objeto.tscn" id="6_s2ilj"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_crgrh")
 
 [node name="Fondo" parent="." instance=ExtResource("1_vt1rs")]
 
 [node name="Player" parent="." instance=ExtResource("1_6lbni")]
-position = Vector2(487, 521)
+position = Vector2(200, 400)
+
+[node name="Objeto" parent="." instance=ExtResource("6_s2ilj")]
+position = Vector2(1033, 387)
+scale = Vector2(0.75, 0.75)
+
+[node name="Fantasma" parent="." instance=ExtResource("3_0kh0y")]
+position = Vector2(697, 577)
+scale = Vector2(0.75, 0.75)
+
+[node name="Detector" parent="." instance=ExtResource("4_7xwpo")]
+position = Vector2(262, 401)
+scale = Vector2(0.225, 0.225)
+
+[connection signal="deteccion" from="Detector" to="Fantasma" method="_on_detector_deteccion"]
+[connection signal="hidden" from="Detector" to="Fantasma" method="_on_detector_hidden"]

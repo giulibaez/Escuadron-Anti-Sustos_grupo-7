@@ -1,48 +1,59 @@
-extends Area2D
+extends CharacterBody2D
 
-var radar = preload("res://radar.gd")
+const VELOCIDAD= 200
 
-signal objeto
 signal deteccion
 
-var velocity : int = 400
-var screen_size
-
 func _ready():
-	screen_size = get_viewport_rect().size
+	$Radar/RadarSprite2D.hide()
+	
 
-func _process(delta):
-	var velocity = Vector2.ZERO
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 100
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 100
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 100
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 100
-
+func _physics_process(delta):
+	movimiento()
+	move_and_slide()
 	if Input.is_action_pressed("Deteccion"):
 		detectar()
 	if Input.is_action_pressed("Interacción"):
 		interactuar()
 	if Input.is_action_pressed("Contencion"):
 		contener()
+
+func movimiento():
+	var vel_x := 0.0
+	var  vel_y := 0.0
+	# Movimiento horizontal
+	if Input.is_action_pressed("derecha"):
+		vel_x += 1
+	elif Input.is_action_pressed("izquierda"):
+		vel_x -= 1
+	 # Movimiento vertical
+	if Input.is_action_pressed("abajo"):
+		vel_y += 1
+	elif Input.is_action_pressed("arriba"):
+		vel_y -= 1
 	
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	if vel_x != 0 and vel_y != 0:
+		vel_x *= 0.7071
+		vel_y *= 0.7071
+		
+	velocity.x = vel_x * VELOCIDAD
+	velocity.y = vel_y * VELOCIDAD
 
 func detectar():
-	add_child(radar)
-	deteccion.emit()
+	$Radar/RadarSprite2D.show()
 	$Timer.start()
 	$Timer.timeout.connect(on_timer_timeout)
 
 func on_timer_timeout():
-	remove_child(radar)
+	$Radar/RadarSprite2D.hide()
+	hidden.emit()
 
 func interactuar():
 	pass
 
 func contener():
 	pass
+
+func _on_radar_body_entered(body: Node2D) -> void:
+	if $Radar/RadarSprite2D.visible:
+		deteccion.emit()

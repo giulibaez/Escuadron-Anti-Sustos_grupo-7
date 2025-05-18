@@ -18,8 +18,8 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Radar" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 
 [node name="RadarSprite2D" type="Sprite2D" parent="Radar"]
 modulate = Color(1, 1, 1, 0.235294)
